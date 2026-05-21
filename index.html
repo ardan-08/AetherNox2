@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AetherNox</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Poppins', sans-serif;
+            background:#08101b;
+            overflow:hidden;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            position:relative;
+            color:white;
+        }
+
+        .stars{
+            position:absolute;
+            width:100%;
+            height:100%;
+            background:url('https://www.transparenttextures.com/patterns/stardust.png');
+            animation:moveStars 60s linear infinite;
+            opacity:0.35;
+        }
+
+        @keyframes moveStars{
+            from{
+                transform:translateY(0);
+            }
+            to{
+                transform:translateY(-1000px);
+            }
+        }
+
+        .glow{
+            position:absolute;
+            width:350px;
+            height:350px;
+            background:lime;
+            filter:blur(180px);
+            opacity:0.15;
+            border-radius:50%;
+            animation:pulse 4s infinite alternate;
+        }
+
+        @keyframes pulse{
+            from{
+                transform:scale(1);
+            }
+            to{
+                transform:scale(1.2);
+            }
+        }
+
+        .box{
+            position:relative;
+            z-index:2;
+            width:90%;
+            max-width:450px;
+            padding:45px;
+            border-radius:25px;
+            text-align:center;
+            background:rgba(17,34,55,0.7);
+            border:1px solid rgba(255,255,255,0.08);
+            backdrop-filter:blur(14px);
+            box-shadow:0 0 30px rgba(0,255,100,0.18);
+            animation:fadeUp 1.2s ease;
+        }
+
+        @keyframes fadeUp{
+            from{
+                opacity:0;
+                transform:translateY(40px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        .logo{
+            width:90px;
+            height:90px;
+            border-radius:50%;
+            object-fit:cover;
+            border:3px solid lime;
+            margin-bottom:18px;
+            box-shadow:0 0 20px lime;
+        }
+
+        h1{
+            font-size:2rem;
+            color:lime;
+            margin-bottom:12px;
+            text-shadow:0 0 15px lime;
+        }
+
+        .typing{
+            font-size:1rem;
+            color:#d8e7ff;
+            margin-bottom:20px;
+            min-height:28px;
+        }
+
+        p{
+            color:#cdd8e8;
+            line-height:1.7;
+            margin-bottom:10px;
+        }
+
+        .btn{
+            display:inline-block;
+            margin-top:25px;
+            padding:13px 28px;
+            border-radius:14px;
+            text-decoration:none;
+            color:white;
+            font-weight:600;
+            background:linear-gradient(45deg,#00ff88,#00bfff);
+            box-shadow:0 0 20px rgba(0,255,136,0.55);
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            transform:scale(1.06);
+            box-shadow:0 0 35px rgba(0,255,136,0.9);
+        }
+
+        .footer{
+            margin-top:25px;
+            font-size:0.85rem;
+            color:#8fa6c4;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars"></div>
+    <div class="glow"></div>
+
+    <div class="box">
+
+        <img src="logo.png" alt="Logo" class="logo">
+
+        <h1>AetherNox</h1>
+
+        <div class="typing" id="typing"></div>
+
+        <p>Selamat datang di website belajar HTML modern.</p>
+
+        <p>Di sini kamu bisa mempelajari dasar-dasar HTML dengan tampilan yang lebih keren dan interaktif.</p>
+
+        <p>Sebelum mulai belajar, silakan login terlebih dahulu.</p>
+
+        <a href="index.html" class="btn">Masuk Sekarang</a>
+
+        <div class="footer">
+            © 2026 AetherNox Learning
+        </div>
+
+    </div>
+
+    <script>
+        const text = "Belajar HTML lebih modern dan seru 🚀";
+        const typing = document.getElementById('typing');
+
+        let index = 0;
+
+        function typeText(){
+            if(index < text.length){
+                typing.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeText, 60);
+            }
+        }
+
+        typeText();
+    </script>
+
+</body>
+</html>
